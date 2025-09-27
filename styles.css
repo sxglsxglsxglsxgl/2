@@ -74,6 +74,22 @@ body {
   z-index: 0;
 }
 
+.safe-frame::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: var(--safe-right);
+  left: var(--safe-left);
+  height: var(--safe-top);
+  background-image: linear-gradient(
+    to top,
+    var(--content-bg, var(--background, #000)) 0%,
+    #000 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 body.has-menu-open,
 body.is-menu-closing {
   overflow: hidden;
