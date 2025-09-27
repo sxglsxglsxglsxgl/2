@@ -483,9 +483,9 @@ body.is-menu-closing .site-menu-toggle__icon span:nth-child(3) {
   align-items: stretch;
   width: min(920px, 100%);
   margin: 0 auto;
-  padding: clamp(48px, 22vh, 200px) clamp(24px, 8vw, 140px) clamp(200px, 52vh, 420px);
-  max-height: calc((var(--viewport-unit) * 100) - (var(--safe-top) + var(--safe-bottom)));
-  overflow: hidden;
+  padding-inline: clamp(24px, 8vw, 140px);
+  padding-block: clamp(48px, 22vh, 200px) clamp(200px, 52vh, 420px);
+  scroll-padding-block: clamp(48px, 22vh, 200px) clamp(200px, 52vh, 420px);
   perspective: 1400px;
 }
 
