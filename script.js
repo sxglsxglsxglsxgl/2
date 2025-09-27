@@ -258,6 +258,8 @@
 
   requestUpdate();
 
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+
   if (scrollContainer instanceof HTMLElement) {
     scrollContainer.addEventListener('scroll', requestUpdate, { passive: true });
 
@@ -265,8 +267,6 @@
       const resizeObserver = new ResizeObserver(() => requestUpdate());
       resizeObserver.observe(scrollContainer);
     }
-  } else {
-    window.addEventListener('scroll', requestUpdate, { passive: true });
   }
 
   window.addEventListener('resize', requestUpdate);
