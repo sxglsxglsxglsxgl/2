@@ -74,6 +74,44 @@ body {
   z-index: 0;
 }
 
+.safe-frame::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: var(--safe-right);
+  left: var(--safe-left);
+  height: var(--safe-top);
+  background-image: linear-gradient(
+    to top,
+    var(--content-bg, var(--background, #000)) 0%,
+    rgba(0, 0, 0, 0.5) 52%,
+    rgba(0, 0, 0, 0.82) 82%,
+    #000 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@supports (color: color-mix(in srgb, #000 50%, #fff 50%)) {
+  .safe-frame::before {
+    background-image: linear-gradient(
+      to top,
+      var(--content-bg, var(--background, #000)) 0%,
+      color-mix(
+        in srgb,
+        var(--content-bg, var(--background, #000)) 78%,
+        #000 22%
+      ) 36%,
+      color-mix(
+        in srgb,
+        var(--content-bg, var(--background, #000)) 48%,
+        #000 52%
+      ) 70%,
+      #000 100%
+    );
+  }
+}
+
 body.has-menu-open,
 body.is-menu-closing {
   overflow: hidden;
